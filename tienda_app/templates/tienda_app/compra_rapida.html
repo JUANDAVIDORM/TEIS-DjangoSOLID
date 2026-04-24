@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h1>Compra Rápida</h1>
+
+  {% if mensaje_exito %}
+    <p style="color: green;"><strong>{{ mensaje_exito }}</strong></p>
+  {% endif %}
+
+  {% if error %}
+    <p style="color: red;"><strong>Error: {{ error }}</strong></p>
+  {% endif %}
+
+  {% if libro %}
+    <p>Libro: <strong>{{ libro.titulo }}</strong></p>
+    <p>Precio Final con IVA: ${{ total }}</p>
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit" style="background: green; color: white; padding: 10px;">
+        Comprar
+      </button>
+    </form>
+  {% endif %}
+
+</body>
+</html>
